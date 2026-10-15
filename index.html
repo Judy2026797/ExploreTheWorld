@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="先读世界 · 想去的地方，该读的书，该看的片">
+<title>先读世界 · Read the World</title>
+<style>
+:root{
+  --bg:#0a0a0a;
+  --card:#1a1a1a;
+  --card2:#1e1e1e;
+  --card3:#242424;
+  --line:#2a2a2a;
+  --line2:rgba(255,255,255,.06);
+  --txt:#e8e8e8;
+  --sub:#9ca3af;
+  --dim:#6b7280;
+  --blue:#0e8be7;
+  --blue2:#006fc5;
+  --green:#22c55e;
+  --amber:#f59e0b;
+  --red:#ef4444;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--txt);
+  font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC','Source Han Sans SC',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  font-size:14px;line-height:1.5;
+}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#3a3a3a;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#555}
+a{color:inherit;text-decoration:none}
+.flagfont{font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","Twemoji Mozilla",sans-serif;font-style:normal}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(17,17,17,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line2);
+}
+.nav{max-width:1040px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;gap:16px}
+.logo{font-size:17px;font-weight:600;letter-spacing:-.2px;white-space:nowrap;display:flex;align-items:center;gap:7px}
+.logo i{font-style:normal;font-size:16px}
+.tabs{display:flex;align-items:center;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:6px 12px;border-radius:9px;font-size:13px;color:var(--sub);white-space:nowrap;transition:.15s}
+.tab:hover{background:rgba(255,255,255,.05);color:#d1d5db}
+.tab.on{background:rgba(255,255,255,.1);color:#fff}
+
+main{max-width:1040px;margin:0 auto;padding:22px 20px 70px}
+
+/* ---------- hero ---------- */
+.hero{
+  background:linear-gradient(135deg,#0e8be7,#006fc5);
+  border-radius:18px;padding:22px 24px;color:#fff;
+  box-shadow:0 10px 30px -12px rgba(14,139,231,.5);
+  margin-bottom:14px;
+}
+.hero-top{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px}
+.hero-top .n{font-weight:400;font-size:13px;color:rgba(255,255,255,.82)}
+.hero-big{font-size:30px;font-weight:700;margin-top:8px;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.hero-sub{font-size:11.5px;color:rgba(255,255,255,.72);margin-top:2px}
+.hero-bar{margin-top:14px;height:5px;border-radius:3px;background:rgba(255,255,255,.22);overflow:hidden}
+.hero-bar i{display:block;height:100%;background:#fff;border-radius:3px;transition:width .35s}
+.hero-legend{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.75);margin-top:7px;font-variant-numeric:tabular-nums}
+
+/* ---------- kpi ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:12px;margin-bottom:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.kpi .lb{font-size:12px;color:var(--sub);margin-bottom:5px}
+.kpi .vl{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.3px}
+.kpi .sb{font-size:11px;color:var(--dim);margin-top:3px;font-variant-numeric:tabular-nums}
+.kpi .vl.g{color:#4ade80}
+.kpi .vl.b{color:#60b8f5}
+.kpi .vl.m{color:#fbbf24}
+
+/* ---------- toolbar ---------- */
+.toolbar{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:12px 14px;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.search{flex:1;min-width:170px;position:relative}
+.search input{
+  width:100%;background:var(--card2);border:1px solid var(--line);border-radius:10px;
+  padding:8px 12px 8px 32px;font-size:13px;outline:none;transition:.15s;
+}
+.search input::placeholder{color:var(--dim)}
+.search input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(14,139,231,.15)}
+.search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);opacity:.45}
+.segs{display:flex;gap:3px;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg{padding:5px 11px;border-radius:7px;font-size:12.5px;color:var(--sub);white-space:nowrap;transition:.15s}
+.seg:hover{color:#d1d5db}
+.seg.on{background:rgba(255,255,255,.1);color:#fff}
+.addbtn{
+  padding:8px 14px;border-radius:10px;font-size:12.5px;font-weight:600;
+  background:rgba(14,139,231,.14);border:1px solid rgba(14,139,231,.45);color:#7cc4f8;
+  white-space:nowrap;transition:.15s;
+}
+.addbtn:hover{background:rgba(14,139,231,.24);color:#a9d8fb}
+
+/* ---------- continent ---------- */
+.cont{margin-top:26px}
+.cont:first-of-type{margin-top:8px}
+.cont-h{
+  display:flex;align-items:center;gap:10px;padding:2px 6px 10px;
+  border-bottom:1px solid var(--line);margin-bottom:14px;
+  cursor:pointer;user-select:none;border-radius:8px 8px 0 0;transition:.15s;
+}
+.cont-h:hover .cn{color:#fff}
+.cont-h:hover .cont-arrow{color:#9ca3af}
+.cont-h:active{background:rgba(255,255,255,.03)}
+.cont-h .cn{font-size:15px;font-weight:600;letter-spacing:.3px;transition:.15s}
+.cont-h .cs{font-size:11.5px;color:var(--dim);font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cont-h .cbar{margin-left:auto;width:90px;height:4px;background:#242424;border-radius:2px;overflow:hidden;flex-shrink:0}
+.cont-h .cbar i{display:block;height:100%;background:linear-gradient(90deg,#38a8f6,#006fc5);border-radius:2px;transition:width .35s}
+.cont-arrow{color:#4b5563;font-size:11px;flex-shrink:0;transition:transform .22s;line-height:1}
+.cont:not(.collapsed) .cont-arrow{transform:rotate(90deg)}
+.cont.collapsed > .country{display:none}
+.cont.collapsed .cont-h{margin-bottom:0}
+
+/* ---------- 博物馆（与洲平级的独立分区） ---------- */
+.cont.mus > .cont-h{border-bottom-color:rgba(245,158,11,.3)}
+.cont.mus > .cont-h .cn{color:#fbbf24}
+.cont.mus > .cont-h .cbar i{background:linear-gradient(90deg,#fbbf24,#d97706)}
+.country.mus .c-flag{background:rgba(245,158,11,.09);border-color:rgba(245,158,11,.28)}
+.country.mus .c-mini i{background:#f59e0b}
+.c-place{font-size:11.5px;color:var(--sub);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c-place b{color:#c9cdd4;font-weight:600}
+
+/* ---------- country card ---------- */
+.country{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.c-head{display:flex;align-items:center;gap:13px;padding:15px 18px;cursor:pointer;user-select:none;transition:.15s}
+.c-head:hover{background:rgba(255,255,255,.02)}
+.c-flag{width:40px;height:40px;border-radius:11px;background:var(--card2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;letter-spacing:0}
+.c-main{min-width:0;flex:1}
+.c-name{font-size:15px;font-weight:600;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.c-tag{font-size:10.5px;color:var(--sub);background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:1.5px 6px;font-weight:400}
+.c-state{font-size:10.5px;border-radius:6px;padding:1.5px 7px;font-weight:500;border:1px solid transparent;cursor:pointer;transition:.15s;white-space:nowrap}
+.c-state[data-s="want"]{color:#7cc4f8;background:rgba(14,139,231,.12);border-color:rgba(14,139,231,.35)}
+.c-state[data-s="prep"]{color:#fbbf24;background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.35)}
+.c-state[data-s="been"]{color:#4ade80;background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.35)}
+.c-note{font-size:11.5px;color:var(--dim);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c-right{margin-left:auto;display:flex;align-items:center;gap:11px;flex-shrink:0}
+.c-pct{font-size:13px;font-weight:600;color:var(--sub);font-variant-numeric:tabular-nums}
+.c-arrow{color:#4b5563;transition:transform .22s;font-size:11px}
+.country.open .c-arrow{transform:rotate(90deg)}
+.c-mini{width:44px;height:4px;border-radius:2px;background:#242424;overflow:hidden}
+.c-mini i{display:block;height:100%;background:var(--blue);border-radius:2px;transition:width .35s}
+.c-when{font-size:11px;color:var(--dim);white-space:nowrap;display:flex;align-items:center;gap:4px}
+
+.c-body{display:none;border-top:1px solid var(--line);padding:16px 18px 16px}
+.country.open .c-body{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+
+.grp-h{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#c7c7c7;margin-bottom:9px}
+.grp-h .num{font-size:11px;color:var(--dim);font-weight:400;font-variant-numeric:tabular-nums}
+.grp-h .bar{margin-left:auto;width:60px;height:3px;background:#242424;border-radius:2px;overflow:hidden;flex-shrink:0}
+.grp-h .bar i{display:block;height:100%;border-radius:2px;transition:width .35s}
+.grp-h .mini-add{
+  font-size:11px;color:var(--dim);padding:1px 7px;border-radius:6px;border:1px dashed #333;
+  transition:.15s;white-space:nowrap;
+}
+.grp-h .mini-add:hover{color:#7cc4f8;border-color:rgba(14,139,231,.5)}
+
+.item{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:9px 10px;border-radius:11px;border:1px solid transparent;
+  transition:.15s;position:relative;
+}
+.item:hover{background:var(--card2);border-color:var(--line)}
+.item+.item{margin-top:2px}
+.item-tap{display:flex;gap:10px;align-items:flex-start;cursor:pointer;flex:1;min-width:0}
+.dot{
+  width:17px;height:17px;border-radius:50%;flex-shrink:0;margin-top:2px;
+  border:1.8px solid #4b5563;display:flex;align-items:center;justify-content:center;
+  transition:.15s;position:relative;
+}
+.item:hover .dot{border-color:#6b7280}
+.item[data-s="doing"] .dot{border-color:var(--blue);background:rgba(14,139,231,.18)}
+.item[data-s="doing"] .dot::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue);position:absolute}
+.item[data-s="done"] .dot{border-color:var(--green);background:var(--green)}
+.item[data-s="done"] .dot::after{
+  content:"";width:4px;height:8px;border:solid #0a0a0a;border-width:0 1.8px 1.8px 0;
+  transform:rotate(45deg) translate(-1px,-1px);position:absolute;
+}
+.it-main{flex:1;min-width:0}
+.it-t{font-size:13.5px;color:#e8e8e8;line-height:1.42;transition:.15s;word-break:break-word}
+.item[data-s="done"] .it-t{color:#6b7280;text-decoration:line-through;text-decoration-color:#4b5563}
+.it-meta{font-size:11px;color:var(--dim);margin-top:2px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.it-a{color:#8b93a1}
+.it-w{font-size:11.5px;color:#7d8593;margin-top:4px;line-height:1.5}
+.badge{
+  font-size:10.5px;padding:2px 7px;border-radius:6px;flex-shrink:0;margin-top:2px;
+  background:var(--card2);border:1px solid var(--line);color:var(--dim);transition:.15s;white-space:nowrap;
+}
+.item[data-s="doing"] .badge{color:#60b8f5;border-color:rgba(14,139,231,.4);background:rgba(14,139,231,.12)}
+.item[data-s="done"] .badge{color:#4ade80;border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.1)}
+
+.ops{display:flex;gap:2px;align-items:center;opacity:0;transition:.15s;flex-shrink:0}
+.item:hover .ops{opacity:1}
+.op{
+  width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:#6b7280;transition:.15s;
+}
+.op:hover{background:rgba(255,255,255,.08);color:#e8e8e8}
+.op.del:hover{background:rgba(239,68,68,.16);color:#f87171}
+@media(hover:none){.ops{opacity:.55}}
+
+.grp-empty{font-size:11.5px;color:var(--dim);padding:6px 10px 8px;line-height:1.5}
+
+.country-ops{display:flex;gap:2px;align-items:center;opacity:0;transition:.15s}
+.c-head:hover .country-ops{opacity:1}
+@media(hover:none){.country-ops{opacity:.5}}
+
+.empty{text-align:center;color:var(--dim);padding:50px 20px;font-size:13px}
+.empty b{display:block;color:var(--sub);font-size:14px;margin-bottom:6px}
+
+/* ---------- footer ---------- */
+footer{max-width:1040px;margin:0 auto;padding:0 20px 60px}
+.frow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.fbtn{padding:7px 13px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:var(--sub);font-size:12px;transition:.15s}
+.fbtn:hover{border-color:#3b82f6;color:#93c5fd}
+.fbtn.danger:hover{border-color:rgba(239,68,68,.6);color:#f87171}
+.fhint{color:var(--dim);font-size:11.5px;margin-top:12px;line-height:1.7}
+.fhint i{font-style:normal;color:#7d8593}
+
+/* ---------- modal ---------- */
+.modal{
+  position:fixed;inset:0;z-index:100;display:none;
+  background:rgba(0,0,0,.62);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  padding:20px;overflow-y:auto;
+}
+.modal.on{display:flex;align-items:flex-start;justify-content:center}
+.sheet{
+  width:100%;max-width:520px;margin:auto;
+  background:#161616;border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 24px 70px -20px rgba(0,0,0,.9);
+  animation:pop .18s ease-out;
+}
+@keyframes pop{from{transform:translateY(10px) scale(.985);opacity:0}to{transform:none;opacity:1}}
+.sh-h{display:flex;align-items:center;gap:10px;padding:17px 20px 13px;border-bottom:1px solid var(--line)}
+.sh-h .tt{font-size:15px;font-weight:600}
+.sh-h .sx{margin-left:auto;width:30px;height:30px;border-radius:9px;color:var(--dim);font-size:15px;display:flex;align-items:center;justify-content:center}
+.sh-h .sx:hover{background:rgba(255,255,255,.07);color:#e8e8e8}
+.sh-b{padding:16px 20px 6px}
+.sh-f{padding:14px 20px 18px;display:flex;gap:10px;align-items:center}
+.sh-f .spacer{margin-left:auto}
+
+.field{margin-bottom:14px}
+.field label{display:block;font-size:11.5px;color:var(--sub);margin-bottom:6px}
+.field label b{color:#f87171;font-weight:400}
+.field input[type=text],.field textarea,.field select{
+  width:100%;background:var(--card2);border:1px solid var(--line);border-radius:10px;
+  padding:9px 12px;font-size:13px;outline:none;transition:.15s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(14,139,231,.15)}
+.field textarea{resize:vertical;min-height:62px;line-height:1.55}
+.field .tip{font-size:10.5px;color:var(--dim);margin-top:5px}
+.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#6b7280 50%),linear-gradient(135deg,#6b7280 50%,transparent 50%);background-position:calc(100% - 17px) 17px,calc(100% - 12px) 17px;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+
+.radios{display:flex;gap:8px}
+.radio{
+  flex:1;text-align:center;padding:9px 6px;border-radius:10px;font-size:12.5px;
+  background:var(--card2);border:1px solid var(--line);color:var(--sub);transition:.15s;
+}
+.radio:hover{color:#d1d5db}
+.radio.on{background:rgba(14,139,231,.14);border-color:rgba(14,139,231,.5);color:#7cc4f8;font-weight:600}
+
+.btn{padding:9px 18px;border-radius:10px;font-size:13px;font-weight:600;transition:.15s;white-space:nowrap}
+.btn.primary{background:var(--blue);color:#fff}
+.btn.primary:hover{background:#2198ef}
+.btn.ghost{background:var(--card2);border:1px solid var(--line);color:var(--sub);font-weight:400}
+.btn.ghost:hover{color:#e8e8e8;border-color:#3b3b3b}
+.btn.danger{background:rgba(239,68,68,.14);border:1px solid rgba(239,68,68,.45);color:#f87171;font-weight:400}
+.btn.danger:hover{background:rgba(239,68,68,.24)}
+
+/* ---------- toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(14px);
+  background:#202020;border:1px solid var(--line);border-radius:11px;
+  padding:10px 18px;font-size:12.5px;color:#e8e8e8;z-index:200;
+  opacity:0;pointer-events:none;transition:.22s;box-shadow:0 12px 34px -10px rgba(0,0,0,.9);max-width:86vw;text-align:center;
+}
+.toast.on{opacity:1;transform:translateX(-50%)}
+
+@media(max-width:760px){
+  /* 顶栏分两行：站名一行，分区 tab 独占一行 —— 6 个分区才排得下，不必横滑 */
+  .nav{flex-wrap:wrap;height:auto;padding:9px 12px 7px;gap:7px}
+  .logo{font-size:15px;gap:5px}
+  .logo i{font-size:14px}
+  .tabs{margin-left:0;width:100%;justify-content:flex-start}
+  .tab{padding:5px 9px;font-size:12.5px}
+  main{padding:16px 14px 56px}
+  .hero{padding:18px;border-radius:16px}
+  .hero-top{flex-wrap:wrap;row-gap:2px}
+  .hero-top .n{flex-basis:100%}
+  .hero-big{font-size:26px}
+  .kpis{gap:10px}
+  .kpi{padding:13px 14px}
+  .kpi .vl{font-size:19px}
+  .country.open .c-body{grid-template-columns:1fr;gap:16px}
+  .c-mini{display:none}
+  .c-when{display:none}
+  .cont-h .cbar{width:60px}
+  .c-head{padding:13px 14px;gap:11px}
+  .c-body{padding:14px 14px 14px}
+  footer{padding:0 14px 50px}
+  .modal{padding:0}
+  .modal.on{align-items:flex-end}
+  .sheet{max-width:none;border-radius:18px 18px 0 0;max-height:92vh;overflow-y:auto}
+  .toolbar{padding:10px 11px;gap:8px}
+  .search{min-width:0;flex:1 1 100%}
+  .addbtn{margin-left:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo"><i>🧭</i><span>先读世界</span></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-top"><span>🧭</span> 先读世界 <span class="n" id="heroCount"></span></div>
+    <div class="hero-big" id="heroBig">0%</div>
+    <div class="hero-sub">想去的地方与博物馆，该读的书，该看的片 · 读完一本、看完一部，点一下圆圈</div>
+    <div class="hero-bar"><i id="heroBar" style="width:0%"></i></div>
+    <div class="hero-legend">
+      <span id="heroLeft">已完成 0 项</span>
+      <span id="heroRight">共 0 项</span>
+    </div>
+  </section>
+
+  <section class="kpis" id="kpis"></section>
+
+  <div class="toolbar">
+    <div class="search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="搜书名、片名、国家、博物馆、作者…">
+    </div>
+    <div class="segs" id="segs"></div>
+    <button class="addbtn" id="addCountry">＋ 新增国家</button>
+  </div>
+
+  <div id="list"></div>
+</main>
+
+<footer>
+  <div class="frow">
+    <button class="fbtn" id="exp">导出备份</button>
+    <button class="fbtn" id="imp">导入备份</button>
+    <button class="fbtn" id="reseed">恢复默认内容</button>
+    <button class="fbtn danger" id="rst">清空进度</button>
+  </div>
+  <div class="fhint">
+    数据存在这台电脑的浏览器里（<i>localStorage</i>），换设备或换浏览器不会自动同步 —— 用「导出备份」存一份 JSON，到新环境「导入备份」即可。<br>
+    新增的国家、博物馆、书籍、纪录片都会一起存进去。
+  </div>
+</footer>
+
+<!-- 编辑弹窗 -->
+<div class="modal" id="modal">
+  <div class="sheet">
+    <div class="sh-h">
+      <span class="tt" id="mTitle">编辑</span>
+      <button class="sx" id="mX">✕</button>
+    </div>
+    <div class="sh-b" id="mBody"></div>
+    <div class="sh-f">
+      <button class="btn danger" id="mDel" style="display:none">删除</button>
+      <span class="spacer"></span>
+      <button class="btn ghost" id="mCancel">取消</button>
+      <button class="btn primary" id="mSave">保存</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   先读世界 · Read the World
+   数据分层：
+     SEED       —— 代码里的默认内容（改这里 = 改默认）
+     rtw.data.v2 —— 首次打开时把 SEED 快照一份，之后增删改都作用在快照上
+     rtw.st.v2   —— 条目状态 { uid: "doing" | "done" }
+     rtw.ct.v2   —— 国家状态 { cid: "want" | "prep" | "been" }
+   ============================================================ */
+
+var SEED = [
+  {
+    continent:"亚洲", countries:[
+      {
+        id:"japan", flag:"🇯🇵", name:"日本", note:"把美藏在暗处的地方 —— 京都的町屋、枯山水、一间开了三百年的店",
+        books:[
+          { t:"菊与刀", a:"鲁思·本尼迪克特", w:"理解日本人的矛盾性：既好战又温和，既慕强又守旧。这本是钥匙。" },
+          { t:"阴翳礼赞", a:"谷崎润一郎", w:"讲清日本人为什么把美藏在暗处。进京都的町屋、寺院前读它。" },
+          { t:"古都", a:"川端康成", w:"京都的四季与一对孪生姐妹。读完等于提前把京都走了一遍。" },
+          { t:"源氏物语", a:"紫式部", w:"世界第一部长篇小说，平安贵族美学的源头，看平等院、看屏风画的底本。" },
+          { t:"武士道", a:"新渡户稻造", w:"理解武士伦理如何一路走到近代日本，看姬路城、看武士宅邸时有用。" }
+        ],
+        films:[
+          { t:"美之壶", a:"NHK 系列", w:"日本器物的美学入门。看完再看任何一间老铺，眼睛都不一样。" },
+          { t:"寿司之神", a:"2011", w:"一个人一辈子只做一件事的极端样本，理解日本式的「匠」。" },
+          { t:"人生果实", a:"2016", w:"一对老夫妇的院子。日本人怎么把日子过成秩序，比任何建筑都直接。" }
+        ]
+      },
+      {
+        id:"turkey", flag:"🇹🇷", name:"土耳其", note:"一座城换了三个名字 —— 拜占庭、君士坦丁堡、伊斯坦布尔",
+        books:[
+          { t:"伊斯坦布尔：一座城市的记忆", a:"奥尔罕·帕慕克", w:"「呼愁」这个词只能从这里来。看博斯普鲁斯海峡两边的破败老宅时最应景。" },
+          { t:"我的名字叫红", a:"奥尔罕·帕慕克", w:"细密画师的视角，讲东西方目光怎么互相撕裂。看托普卡帕宫的细密画藏品前读。" },
+          { t:"1453：君士坦丁堡之战", a:"罗杰·克劳利", w:"城墙倒下的那一刻。站上圣索菲亚的穹顶下会重新起鸡皮疙瘩。" },
+          { t:"奥斯曼帝国六百年", a:"帕特里克·贝尔福", w:"从部落到横跨三洲的帝国，再拆解成今天的中东。" }
+        ],
+        films:[
+          { t:"拜占庭：三城记", a:"BBC 2013", w:"同一块土地上三个帝国的层叠，是理解伊斯坦布尔最省时的一条路。" },
+          { t:"奥斯曼帝国：欧洲的伊斯兰王室", a:"BBC 2013", w:"奥斯曼与欧洲六百年的纠缠，看完再看以弗所、番红花城。" }
+        ]
+      },
+      {
+        id:"india", flag:"🇮🇳", name:"印度", note:"一个用神话运作现实的国家 —— 神比人多，逻辑比神话少",
+        books:[
+          { t:"幽暗国度", a:"V.S.奈保尔", w:"印度三部曲第一部。带着恶意和诚实写下的第一印象，最接近旅行者的眼睛。" },
+          { t:"印度：受伤的文明", a:"V.S.奈保尔", w:"第二部。解释为什么古老文明会变成今天的样子，比任何攻略都硬。" },
+          { t:"印度：百万叛变的今天", a:"V.S.奈保尔", w:"第三部。底层、种姓、宗教冲突的现场记录。" },
+          { t:"薄伽梵歌", a:"（《摩诃婆罗多》节选）", w:"印度人的精神底色。不理解业与法，就看不进任何一座神庙。" }
+        ],
+        films:[
+          { t:"印度的故事", a:"BBC 2007 · 迈克尔·伍德", w:"六集走完五千年，去瓦拉纳西、去恒河之前看一遍。" },
+          { t:"佛陀", a:"PBS 2010", w:"佛教如何在印度诞生又在此地衰落，理解鹿野苑、菩提伽耶的底色。" }
+        ]
+      }
+    ]
+  },
+  {
+    continent:"欧洲", countries:[
+      {
+        id:"italy", flag:"🇮🇹", name:"意大利", note:"西方文明的一半遗产在这里落地 —— 从罗马到文艺复兴",
+        books:[
+          { t:"罗马人的故事", a:"盐野七生", w:"十五卷的世界，从村子到帝国。写得好读，把罗马讲成了一个持续扩张的城邦。" },
+          { t:"罗马帝国衰亡史", a:"爱德华·吉本", w:"经典中的经典，读节选本足够。理解「衰亡」这个词是怎么被写出来的。" },
+          { t:"意大利文艺复兴时期的文化", a:"布克哈特", w:"「文艺复兴」这个概念本身就是这本书定义的，去佛罗伦萨前必读。" },
+          { t:"神曲", a:"但丁", w:"地狱、炼狱、天堂三层的结构，是理解中世纪欧洲精神世界的总图。" }
+        ],
+        films:[
+          { t:"罗马：帝国的兴衰", a:"History Channel 2008", w:"用剧情再现讲制度史，看斗兽场、看卡拉卡拉浴场前先过一遍。" },
+          { t:"美第奇家族：文艺复兴的教父", a:"PBS 2004", w:"钱怎么养出艺术。佛罗伦萨的每一面墙都跟这家人有关。" },
+          { t:"庞贝的最后一天", a:"BBC 2003", w:"维苏威火山下的 24 小时，进庞贝古城前看完再看。" }
+        ]
+      },
+      {
+        id:"spain", flag:"🇪🇸", name:"西班牙", note:"一半是欧洲，一半是摩尔人留下的异域",
+        books:[
+          { t:"堂吉诃德", a:"塞万提斯", w:"拉曼却不只有风车，还有整个西班牙的荒凉底色。" },
+          { t:"向加泰罗尼亚致敬", a:"乔治·奥威尔", w:"内战前线的亲历记录，理解西班牙近代为何如此撕裂。" },
+          { t:"阿尔罕布拉的故事", a:"华盛顿·欧文", w:"十九世纪美国人写给格拉纳达的情书，进阿尔罕布拉宫前读最合适。" },
+          { t:"西班牙史", a:"雷蒙德·卡尔", w:"一本干净的通史，把摩尔、哈布斯堡、内战串成一条线。" }
+        ],
+        films:[
+          { t:"西班牙的艺术", a:"BBC 2008", w:"从摩尔人的科尔多瓦走到高迪的巴塞罗那，三集看完等于一次美学路线规划。" }
+        ]
+      },
+      {
+        id:"czech", flag:"🇨🇿", name:"捷克", note:"一个小国怎么用幽默和荒诞扛过整个二十世纪",
+        books:[
+          { t:"生命中不能承受之轻", a:"米兰·昆德拉", w:"布拉格之春的背景下，讲轻与重。看老城广场和查理大桥时用得上。" },
+          { t:"过于喧嚣的孤独", a:"博胡米尔·赫拉巴尔", w:"一个在废纸回收站工作三十五年的人的自白，捷克式的荒诞与温情。" },
+          { t:"布拉格精神", a:"伊凡·克里玛", w:"直接回答这个问题：布拉格的精神到底是什么。" }
+        ],
+        films:[
+          { t:"布拉格之恋", a:"1988", w:"改编自昆德拉那本小说，画面里的布拉格比今日更接近书里。" }
+        ]
+      }
+    ]
+  },
+  {
+    continent:"非洲", countries:[
+      {
+        id:"egypt", flag:"🇪🇬", name:"埃及", note:"一条河、两种生死观、五千年 —— 不看功课，神庙就是一堆石头",
+        books:[
+          { t:"埃及四千年", a:"乔安·弗莱彻", w:"最省力的一部通史，作者本人就是 BBC《不朽的埃及》的主讲人，书与片配套看效果最好。" },
+          { t:"古代埃及史", a:"刘文鹏", w:"中文世界里最扎实的古埃及通史，王朝分期、法老谱系都靠它理清。" },
+          { t:"古代埃及", a:"李晓东", w:"从博物馆与考古视角写的入门书，适合先建立框架再深入。" },
+          { t:"伟大的博物馆：开罗埃及博物馆", a:"系列丛书", w:"一半以上的国宝在开罗博物馆。先看图录再看实物，否则现场只会被人群推着走。" },
+          { t:"美国国家地理：埃及神话故事", a:"系列丛书", w:"神庙墙上全是神。认不出奥西里斯、荷鲁斯、伊西斯，就看不懂任何一面墙。" },
+          { t:"亡灵书", a:"古埃及文献", w:"古埃及人自己写的「来世指南」，理解墓葬、木乃伊、审判庭的关键文本。" }
+        ],
+        films:[
+          { t:"不朽的埃及", a:"BBC 2016", w:"考古学家乔安·弗莱彻带路，与《埃及四千年》同作者，第一优先看这部。" },
+          { t:"古代埃及人", a:"BBC 2003", w:"用生活史还原普通人：工匠、祭司、农民，比帝王史更能看懂遗址里的日常。" },
+          { t:"埃及的金色王朝", a:"PBS", w:"新王国时代的三个王朝，图坦卡蒙与拉美西斯二世都在这一段。" },
+          { t:"埃及失落的宝藏", a:"国家地理", w:"跟着现场考古队走，看最新挖出来的东西，理解「考古不是寻宝」。" },
+          { t:"追踪埃及迷城", a:"BBC", w:"镜头语言最好的一版，画面接近电影，适合行前建立审美期待。" },
+          { t:"你不知道的大英博物馆·古埃及篇", a:"NHK", w:"另一半文物在伦敦。这条补上开罗之外的那一半。" }
+        ]
+      },
+      {
+        id:"morocco", flag:"🇲🇦", name:"摩洛哥", note:"沙漠、蓝色小镇与伊斯兰几何 —— 一座被电影反复取景的国家",
+        books:[
+          { t:"遮蔽的天空", a:"保罗·鲍尔斯", w:"撒哈拉带来的虚无感，这本小说把它写到了极致。进沙漠前读。" },
+          { t:"阿拉伯的劳伦斯", a:"T.E.劳伦斯", w:"（可选）北非与中东的一战侧影，理解今日国界线的来源。" }
+        ],
+        films:[
+          { t:"卡萨布兰卡", a:"1942", w:"虽然是好莱坞片场里的摩洛哥，但那座城市的名字从此有了滤镜。" }
+        ]
+      },
+      {
+        id:"eastafrica", flag:"🇰🇪", name:"肯尼亚 · 坦桑尼亚", note:"东非草原 —— 人类起源地，也是殖民叙事的现场",
+        books:[
+          { t:"走出非洲", a:"凯伦·布里克森", w:"丹麦女作家在内罗毕经营咖啡园的自述，东非最经典的一本书，也是最多被误读的一本。" },
+          { t:"乞力马扎罗的雪", a:"海明威", w:"短篇。非洲不是背景，是判断一个人的尺度。" }
+        ],
+        films:[
+          { t:"走出非洲", a:"1985", w:"与书对照看，能清楚看到好莱坞如何改写了一本殖民地回忆录。" },
+          { t:"非洲", a:"BBC 2013 · 大卫·爱登堡", w:"出发前的动物世界预习，从撒哈拉到卡拉哈里。" }
+        ]
+      }
+    ]
+  },
+  {
+    continent:"美洲", countries:[
+      {
+        id:"peru", flag:"🇵🇪", name:"秘鲁", note:"一个没有文字、没有铁器、没有轮子的帝国，被一百多人灭掉",
+        books:[
+          { t:"印加帝国的末日", a:"金·麦夸里", w:"168 个西班牙人如何终结一个千万人口的帝国。写得好读，是理解马丘比丘的钥匙。" },
+          { t:"秘鲁征服史", a:"威廉·普雷斯科特", w:"十九世纪史学经典，细节丰厚，看不完至少读皮萨罗登岸那几章。" },
+          { t:"拉丁美洲被切开的血管", a:"爱德华多·加莱亚诺", w:"理解这片大陆被反复掠夺的结构，去库斯科与利马前读，眼睛会变。" }
+        ],
+        films:[
+          { t:"马丘比丘的幽灵", a:"PBS NOVA 2010", w:"把马丘比丘放回印加帝国的整体里讲，比单纯看风景有收获得多。" }
+        ]
+      },
+      {
+        id:"mexico", flag:"🇲🇽", name:"墨西哥", note:"阿兹特克与玛雅之上，压着一层西班牙与一层现代",
+        books:[
+          { t:"孤独的迷宫", a:"奥克塔维奥·帕斯", w:"诺奖得主对「墨西哥人是谁」的解剖，理解这片土地的自我认识。" },
+          { t:"玉米人", a:"米格尔·安赫尔·阿斯图里亚斯", w:"玛雅神话与现实的交织，读它比读人类学报告更接近当地人的脑子。" },
+          { t:"征服新西班牙信史", a:"贝尔纳尔·迪亚斯", w:"参与征服的普通士兵晚年写的回忆录，一手材料，和官方叙事完全不同。" }
+        ],
+        films:[]
+      }
+    ]
+  }
+];
+
+/* ============================================================
+   博物馆 · MUSEUMS
+   与「大洲」平级：不属于任何洲，独立成一个分区。
+   字段与「国家」对齐（flag 存图标），便于共用同一套卡片渲染。
+   ============================================================ */
+var SEED_M = [
+  {
+    id:"british", flag:"🏛", name:"大英博物馆", city:"伦敦", country:"英国",
+    note:"世界上第一座公共博物馆，也是最大的「别人家的东西」陈列室 —— 看完会想清楚：这些东西为什么在这里",
+    books:[
+      { t:"大英博物馆世界简史", a:"尼尔·麦格雷戈", w:"原馆长从 800 万件藏品里挑出 100 件写世界史。等于提前拿到一份导览地图，进馆直接照着找。" },
+      { t:"埃尔金大理石：帕特农雕塑该不该还", a:"克里斯托弗·希钦斯", w:"17–19 号展厅那批雕塑的归属争议。看完你就知道自己在看文物，还是在看战利品。" }
+    ],
+    films:[
+      { t:"你不知道的大英博物馆", a:"NHK 系列", w:"按展厅分集，日本人的镜头最耐心。先挑埃及、希腊、中国三集。" },
+      { t:"文明的轨迹", a:"BBC 1969 · 肯尼斯·克拉克", w:"十三集定义了什么才叫「文明」。看过它，馆里那些石头和罐子才会开始有先后次序。" }
+    ]
+  },
+  {
+    id:"louvre", flag:"🖼", name:"卢浮宫", city:"巴黎", country:"法国",
+    note:"从要塞到王宫再到博物馆，八百年里它一直是权力的展柜",
+    books:[
+      { t:"达·芬奇传", a:"沃尔特·艾萨克森", w:"《蒙娜丽莎》的画家不只是天才，还是解剖学家、工程师、舞台设计师。看那幅小画前读它，画会变大。" },
+      { t:"古代艺术史（节选）", a:"温克尔曼", w:"「高贵的单纯，静穆的伟大」—— 馆里那批希腊罗马雕塑的审美底座，就是这句话铺的。" },
+      { t:"拿破仑传", a:"（任选一部）", w:"卢浮宫的收藏规模是拿破仑用战争撑起来的。了解他，才明白这里为什么大得离谱。" }
+    ],
+    films:[
+      { t:"艺术的力量", a:"BBC 2006 · 西蒙·沙玛", w:"看「大卫」那一集 —— 大革命、拿破仑加冕，和加冕厅里的巨幅画是同一件事。" }
+    ]
+  },
+  {
+    id:"met", flag:"🏛", name:"大都会艺术博物馆", city:"纽约", country:"美国",
+    note:"用一百五十年时间把「世界」搬进曼哈顿 —— 从埃及神庙到美国客厅",
+    books:[
+      { t:"艺术的故事", a:"贡布里希", w:"西方艺术最经典的一条主线。不用全读，挑你要看的展厅对应章节。" },
+      { t:"大都会艺术博物馆指南", a:"官方导览", w:"按展厅编号的官方路线图。只逛一天的人，最需要的就是这个。" }
+    ],
+    films:[
+      { t:"走进大都会", a:"PBS 2021", w:"三集拍疫情中的闭馆与重开。你会看到博物馆除了藏品之外的另一面：人。" }
+    ]
+  },
+  {
+    id:"uffizi", flag:"🖼", name:"乌菲兹美术馆", city:"佛罗伦萨", country:"意大利",
+    note:"文艺复兴的账本 —— 美第奇家族办公的走廊，顺手挂成了世界第一座现代美术馆",
+    books:[
+      { t:"美第奇家族的兴衰", a:"保罗·斯特拉森", w:"钱怎么养出艺术。理解了这家人，乌菲兹的每幅画都变成一笔投资的后半句。" },
+      { t:"文艺复兴：艺术与诗的研究", a:"沃尔特·佩特", w:"十九世纪对《维纳斯的诞生》最著名的一段解读。看完再去看波提切利，会不一样。" }
+    ],
+    films:[
+      { t:"艺术的力量", a:"BBC 2006 · 西蒙·沙玛", w:"看「卡拉瓦乔」那一集 —— 他的《美杜莎》就挂在这条走廊的尽头。" }
+    ]
+  },
+  {
+    id:"vatican", flag:"⛪", name:"梵蒂冈博物馆", city:"梵蒂冈 · 罗马", country:"梵蒂冈",
+    note:"教皇的私人收藏，最后变成一条走不完的走廊 —— 终点是西斯廷穹顶",
+    books:[
+      { t:"米开朗琪罗与教皇的天花板", a:"罗斯·金", w:"四年，一个人躺在脚手架上画完整个《创世纪》。进西斯廷礼拜堂前最该读的一本。" },
+      { t:"米开朗琪罗传", a:"罗曼·罗兰", w:"写他的痛苦与倔强。看《最后的审判》时，会理解那种近乎愤怒的用力。" }
+    ],
+    films:[
+      { t:"艺术的力量", a:"BBC 2006 · 西蒙·沙玛", w:"看「米开朗琪罗」那一集，与上面那本书互相印证。" }
+    ]
+  },
+  {
+    id:"prado", flag:"🖼", name:"普拉多博物馆", city:"马德里", country:"西班牙",
+    note:"西班牙黄金时代的官方仓库 —— 委拉斯开兹、戈雅、博斯，全在这里等着",
+    books:[
+      { t:"伟大的博物馆：普拉多博物馆", a:"系列丛书", w:"图录式入门。先把《宫娥》和《人间乐园》看熟，现场才不会被体量压垮。" },
+      { t:"艺术的故事", a:"贡布里希", w:"只看巴洛克与西班牙那几章，一条线从提香连到戈雅。" }
+    ],
+    films:[
+      { t:"文明", a:"BBC 2018 · 九集", w:"欧洲艺术与权力的整体脉络。看戈雅之前先建立坐标系，冲击会更大。" }
+    ]
+  },
+  {
+    id:"miho", flag:"⛰", name:"美秀美术馆 MIHO", city:"滋贺 · 甲贺", country:"日本",
+    note:"贝聿铭造的现代桃花源 —— 走过樱花步道、穿过隧道、跨过吊桥，美术馆才出现。80% 埋在山里",
+    books:[
+      { t:"桃花源记", a:"陶渊明", w:"全文不到四百字。贝聿铭的整条参观动线就是照它设计的，进隧道前先背下来。" },
+      { t:"贝聿铭谈贝聿铭", a:"贝聿铭 / 波姆", w:"他自己讲怎么用光、怎么和自然相处。看完再进那条隧道，感觉完全不同。" }
+    ],
+    films:[
+      { t:"贝聿铭：光影传奇", a:"PBS 1997", w:"美术馆落成那年拍的。听他解释「我不想把建筑做得过低」。" }
+    ]
+  },
+  {
+    id:"nezu", flag:"🛕", name:"根津美术馆", city:"东京", country:"日本",
+    note:"茶道具、佛像，加一座能走进去的日本庭园 —— 小而精的那种「懂」",
+    books:[
+      { t:"茶之书", a:"冈仓天心", w:"用英文写给西方人看的日本美学宣言。茶碗、茶室、留白，从这里入门最快。" },
+      { t:"日本工艺之美", a:"柳宗悦", w:"民艺运动的纲领。看完你会开始注意「日常器物」这件事本身。" }
+    ],
+    films:[
+      { t:"利休", a:"1989 · 敕使河原宏", w:"千利休的一生，也是茶道美学的现场。看完再去看茶碗，眼神会变。" }
+    ]
+  },
+  {
+    id:"istanbul-arch", flag:"⚱", name:"伊斯坦布尔考古博物馆", city:"伊斯坦布尔", country:"土耳其",
+    note:"亚历山大石棺在这里 —— 一块石头串起希腊、波斯、奥斯曼三层文明",
+    books:[
+      { t:"丝绸之路：一部全新的世界史", a:"彼得·弗兰科潘", w:"把世界史的中心从欧洲挪到中亚与近东。伊斯坦布尔正是这条路的终点站。" },
+      { t:"伟大的博物馆：伊斯坦布尔考古博物馆", a:"系列丛书", w:"先认一遍《亚历山大石棺》的浮雕，现场才看得懂那场猎狮。" }
+    ],
+    films:[
+      { t:"丝绸之路", a:"NHK · 央视 1980", w:"纪录片史上的一座碑。四十多年过去，画面里的很多地方已经变了。" }
+    ]
+  },
+  {
+    id:"gem", flag:"🏛", name:"大埃及博物馆 GEM", city:"吉萨", country:"埃及",
+    note:"2025 年 11 月 4 日才正式开放 —— 图坦卡蒙 5992 件随葬品第一次聚在一处，距金字塔不到 2 公里",
+    books:[
+      { t:"图坦卡蒙之墓", a:"霍华德·卡特", w:"1922 年打开墓室的人自己写的记录。看那 5992 件东西之前，先听他讲怎么发现第一道门。" },
+      { t:"古埃及宗教与来世信仰", a:"（任选一部）", w:"墓里每件东西都在服务「来世」。不懂这套逻辑，看到的只是一屋黄金。" }
+    ],
+    films:[
+      { t:"萨卡拉墓穴的秘密", a:"Netflix 2020", w:"跟拍埃及考古队的现场发掘，理解「博物馆里的东西是怎么来的」。" },
+      { t:"不朽的埃及", a:"BBC 2016", w:"与国家卡里的埃及片单互补，重点看新王国与图坦卡蒙那一段。" }
+    ]
+  },
+  {
+    id:"delhi-nm", flag:"🛕", name:"印度国家博物馆", city:"新德里", country:"印度",
+    note:"从哈拉帕印章到莫卧儿细密画 —— 五千年连续不断的那条线",
+    books:[
+      { t:"奥义书", a:"古印度文献", w:"印度思想的根部。认得出「梵」「我」「轮回」，才看得进任何一尊像。" },
+      { t:"印度的宗教：印度教与佛教", a:"马克斯·韦伯", w:"社会学视角拆解种姓与宗教。硬，但读完对印度的理解会上一个台阶。" }
+    ],
+    films:[
+      { t:"恒河", a:"BBC 2007 · 三集", w:"从源头到入海口。这条河是理解印度的一把总钥匙。" },
+      { t:"印度：自然的奇迹", a:"BBC 2015", w:"补上地理那一半。文明长在哪块地上，答案都在这三集里。" }
+    ]
+  },
+  {
+    id:"antropologia", flag:"🗿", name:"墨西哥国立人类学博物馆", city:"墨西哥城", country:"墨西哥",
+    note:"阿兹特克太阳石躺在中庭里 —— 一个被征服文明最重的那块石头",
+    books:[
+      { t:"伟大的博物馆：墨西哥国立人类学博物馆", a:"系列丛书", w:"先看太阳石与玛雅厅的图录，现场能省下大量体力。" },
+      { t:"失落的文明：玛雅", a:"系列丛书", w:"文字、历法、金字塔。玛雅厅是这家馆最容易被走马观花的部分。" }
+    ],
+    films:[
+      { t:"玛雅地下的秘密", a:"BBC 2018", w:"玛雅人靠地下河活着，也靠它祭祀。看完再看石灰岩与金字塔，关系就通了。" }
+    ]
+  },
+  {
+    id:"larco", flag:"🏺", name:"拉尔科博物馆", city:"利马", country:"秘鲁",
+    note:"一座建在金字塔遗址上的私人馆 —— 莫切人把三千年前的生活全刻在了陶罐上",
+    books:[
+      { t:"失落的文明：印加", a:"系列丛书", w:"先把秘鲁主线立起来：从查文、莫切到印加，一脉相承。" }
+    ],
+    films:[
+      { t:"文明的轨迹", a:"BBC 1969 · 肯尼斯·克拉克", w:"先弄清「文明」的标准是什么。莫切陶器摆在面前时，你会知道自己看的是什么级别的东西。" }
+    ]
+  },
+  {
+    id:"nairobi-nm", flag:"🦴", name:"内罗毕国家博物馆", city:"内罗毕", country:"肯尼亚",
+    note:"人类的摇篮就在这片土地上 —— 利基家族在这里挖出了最早的人",
+    books:[
+      { t:"人类的起源", a:"理查德·利基", w:"发现者本人讲人类怎么从东非走出来。现场看那批头骨化石前，这本书是钥匙。" },
+      { t:"第三种黑猩猩", a:"贾雷德·戴蒙德", w:"从基因到语言，讲清我们和黑猩猩只差的那一点点。" }
+    ],
+    films:[
+      { t:"人类的攀升", a:"BBC 1973 · 布洛诺夫斯基", w:"半个世纪前的经典，讲人类如何一步步学会理解自己。" },
+      { t:"人类的起源", a:"BBC", w:"与上面那本书同题，重点看东非的发掘现场。" }
+    ]
+  }
+];
+
+/* ---------- 常量 ---------- */
+var K_DATA = "rtw.data.v2", K_ST = "rtw.st.v2", K_CT = "rtw.ct.v2", K_COL = "rtw.col.v2", K_CCOL = "rtw.ccol.v2", K_M = "rtw.museums.v2";
+/* 博物馆是一个与「大洲」同级的虚拟分区，用这个常量当它的分组名 */
+var MUS_NAME = "🏛 博物馆";
+var CYCLE = { todo:"doing", doing:"done", done:"todo" };
+var LABEL = { todo:"未开始", doing:"进行中", done:"已完成" };
+var CSTATE = [
+  { k:"want", n:"想去" },
+  { k:"prep", n:"做功课" },
+  { k:"been", n:"已去过" }
+];
+var CYCLE_C = { want:"prep", prep:"been", been:"want" };
+
+/* ---------- 存储 ---------- */
+function lsGet(k, d){
+  try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; }
+}
+function lsSet(k, v){
+  try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){ toast("存储失败，可能是浏览器隐私模式"); }
+}
+
+/* ---------- 数据初始化（旧版 rtw-state-v1 的 uid 与新 uid 格式一致，自动继承） ---------- */
+function freshData(){
+  return SEED.map(function(cont){
+    return {
+      continent: cont.continent,
+      countries: cont.countries.map(function(c){
+        return {
+          id: c.id, flag: c.flag, name: c.name, note: c.note || "", when: c.when || "",
+          books: (c.books || []).map(function(b, i){ return { uid: c.id + "|b" + i, t: b.t, a: b.a || "", w: b.w || "" }; }),
+          films: (c.films || []).map(function(f, i){ return { uid: c.id + "|f" + i, t: f.t, a: f.a || "", w: f.w || "" }; })
+        };
+      })
+    };
+  });
+}
+
+/* 博物馆数据（扁平数组，没有大洲这一层） */
+function freshM(){
+  return SEED_M.map(function(m){
+    return {
+      id: m.id, flag: m.flag, name: m.name, city: m.city || "", country: m.country || "",
+      note: m.note || "", when: m.when || "",
+      books: (m.books || []).map(function(b, i){ return { uid: m.id + "|b" + i, t: b.t, a: b.a || "", w: b.w || "" }; }),
+      films: (m.films || []).map(function(f, i){ return { uid: m.id + "|f" + i, t: f.t, a: f.a || "", w: f.w || "" }; })
+    };
+  });
+}
+
+var DATA = lsGet(K_DATA, null);
+if (!DATA || !Array.isArray(DATA) || !DATA.length) { DATA = freshData(); lsSet(K_DATA, DATA); }
+var MDATA = lsGet(K_M, null);
+if (!MDATA || !Array.isArray(MDATA)) { MDATA = freshM(); lsSet(K_M, MDATA); }
+var ST = lsGet(K_ST, {});
+var CT = lsGet(K_CT, {});
+var COL = lsGet(K_COL, []);          /* 折叠的国家 id */
+var collapsed = {};
+COL.forEach(function(id){ collapsed[id] = 1; });
+
+var CCOL = lsGet(K_CCOL, {});        /* 折叠的大洲名 */
+var collapsedCont = (CCOL && typeof CCOL === "object" && !Array.isArray(CCOL)) ? CCOL : {};
+if (Array.isArray(CCOL)) CCOL.forEach(function(n){ collapsedCont[n] = 1; });
+
+/* 兼容旧版 localStorage 键 */
+(function(){
+  var legacy = lsGet("rtw-state-v1", null);
+  if (legacy && typeof legacy === "object" && !Object.keys(ST).length) { ST = legacy; lsSet(K_ST, ST); }
+})();
+
+function saveData(){ lsSet(K_DATA, DATA); }
+function saveM(){ lsSet(K_M, MDATA); }
+function saveSt(){ lsSet(K_ST, ST); }
+function saveCt(){ lsSet(K_CT, CT); }
+function saveCol(){ lsSet(K_COL, Object.keys(collapsed)); }
+
+/* ---------- 工具 ---------- */
+function el(s){ return document.querySelector(s); }
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"]/g, function(m){
+    return ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;" })[m];
+  });
+}
+function uid(prefix){ return prefix + "|x" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+function stOf(uid){ return ST[uid] || "todo"; }
+function ctOf(cid){ return CT[cid] || "want"; }
+function ctName(k){ var f = CSTATE.filter(function(x){ return x.k === k; })[0]; return f ? f.n : k; }
+function flagChar(c){ return (c.flag && c.flag.trim()) ? c.flag.trim() : "🌍"; }
+
+var toastTimer = null;
+function toast(msg){
+  var t = el("#toast");
+  t.textContent = msg;
+  t.classList.add("on");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove("on"); }, 2200);
+}
+
+/* ---------- 索引 ---------- */
+/* 博物馆被包成一个「虚拟大洲」，卡片渲染 / 折叠 / 统计全部复用同一套逻辑 */
+function museumGroup(){
+  return { continent: MUS_NAME, countries: MDATA, isMuseum: true };
+}
+function allGroups(){ return DATA.concat([museumGroup()]); }
+function allCountries(){                  /* 只数国家 */
+  var arr = [];
+  DATA.forEach(function(cont){
+    cont.countries.forEach(function(c){ arr.push({ cont: cont, c: c }); });
+  });
+  return arr;
+}
+function allItems(){
+  var arr = [];
+  allGroups().forEach(function(cont){
+    cont.countries.forEach(function(c){
+      (c.books || []).forEach(function(b){ arr.push({ kind:"book", cid:c.id, cname:c.name, continent:cont.continent, it:b }); });
+      (c.films || []).forEach(function(f){ arr.push({ kind:"film", cid:c.id, cname:c.name, continent:cont.continent, it:f }); });
+    });
+  });
+  return arr;
+}
+function findMuseum(mid){
+  var hit = null;
+  MDATA.forEach(function(m){ if (m.id === mid) hit = m; });
+  return hit;
+}
+function findCountry(cid){
+  var hit = null;
+  DATA.forEach(function(cont){ cont.countries.forEach(function(c){ if (c.id === cid) hit = { cont: cont, c: c }; }); });
+  return hit;
+}
+/* 国家或博物馆的统一入口 */
+function findAny(cid){
+  var h = findCountry(cid);
+  if (h) return h;
+  var m = findMuseum(cid);
+  return m ? { cont: null, c: m, museum: true } : null;
+}
+/* 按「分组名」找容器（洲名 或 MUS_NAME） */
+function findGroup(name){
+  if (name === MUS_NAME) return museumGroup();
+  return DATA.filter(function(x){ return x.continent === name; })[0] || null;
+}
+/* 删除整个容器（国家 or 博物馆），返回被删对象；找不到返回 null */
+function delContainer(cid){
+  var m = findMuseum(cid);
+  if (m) { MDATA.splice(MDATA.indexOf(m), 1); saveM(); return m; }
+  var h = findCountry(cid);
+  if (!h) return null;
+  h.cont.countries = h.cont.countries.filter(function(x){ return x.id !== cid; });
+  if (!h.cont.countries.length) DATA = DATA.filter(function(x){ return x !== h.cont; });
+  saveData();
+  return h.c;
+}
+function findItem(kind, uidv){
+  var hit = null;
+  function scan(c, cont){
+    (c[kind === "book" ? "books" : "films"] || []).forEach(function(x, i){
+      if (x.uid === uidv) hit = { cont: cont, c: c, kind: kind, idx: i, it: x };
+    });
+  }
+  DATA.forEach(function(cont){ cont.countries.forEach(function(c){ scan(c, cont); }); });
+  MDATA.forEach(function(m){ scan(m, null); });
+  return hit;
+}
+
+/* ============================================================
+   渲染
+   ============================================================ */
+var curCont = "all", curSeg = "all", curQ = "";
+
+function contNames(){
+  var out = [];
+  DATA.forEach(function(d){ if (out.indexOf(d.continent) < 0) out.push(d.continent); });
+  return out;
+}
+
+function renderTabs(){
+  var names = contNames();
+  /* 当前筛选的分区被改名/删空后，自动回到「全部」，避免出现空页 */
+  if (curCont !== "all" && curCont !== MUS_NAME && names.indexOf(curCont) < 0) curCont = "all";
+  var tabs = [{ k:"all", n:"全部" }]
+    .concat(names.map(function(c){ return { k:c, n:c }; }))
+    .concat([{ k:MUS_NAME, n:MUS_NAME }]);
+  el("#tabs").innerHTML = tabs.map(function(t){
+    return '<button class="tab' + (curCont === t.k ? " on" : "") + '" data-k="' + esc(t.k) + '">' + esc(t.n) + "</button>";
+  }).join("");
+  Array.prototype.forEach.call(el("#tabs").querySelectorAll(".tab"), function(b){
+    b.onclick = function(){ curCont = b.dataset.k; renderTabs(); renderList(); };
+  });
+  syncAddBtn();
+}
+
+/* 工具栏那颗按钮：在博物馆分区里换个说法 */
+function syncAddBtn(){
+  var b = el("#addCountry");
+  if (!b) return;
+  if (curCont === MUS_NAME) {
+    b.textContent = "＋ 新增博物馆";
+    b.onclick = function(){ openMuseumForm(null); };
+  } else {
+    b.textContent = "＋ 新增国家";
+    b.onclick = function(){ openCountryForm(null); };
+  }
+}
+
+var SEGS = [
+  { k:"all", n:"全部" }, { k:"todo", n:"未开始" },
+  { k:"doing", n:"进行中" }, { k:"done", n:"已完成" }
+];
+function renderSegs(){
+  el("#segs").innerHTML = SEGS.map(function(s){
+    return '<button class="seg' + (curSeg === s.k ? " on" : "") + '" data-k="' + s.k + '">' + s.n + "</button>";
+  }).join("");
+  Array.prototype.forEach.call(el("#segs").querySelectorAll(".seg"), function(b){
+    b.onclick = function(){ curSeg = b.dataset.k; renderSegs(); renderList(); };
+  });
+}
+
+function renderHero(){
+  var items = allItems();
+  var total = items.length;
+  var cDone = items.filter(function(x){ return stOf(x.it.uid) === "done"; }).length;
+  var cDoing = items.filter(function(x){ return stOf(x.it.uid) === "doing"; }).length;
+  var pct = total ? Math.round(cDone / total * 100) : 0;
+  var books = items.filter(function(x){ return x.kind === "book"; }).length;
+  var films = items.filter(function(x){ return x.kind === "film"; }).length;
+  var cc = allCountries().length;
+  var mm = MDATA.length;
+  el("#heroCount").textContent = "共 " + cc + " 个国家 · " + mm + " 家博物馆 · " + books + " 本书 · " + films + " 部纪录片";
+  el("#heroBig").textContent = pct + "%";
+  el("#heroBar").style.width = pct + "%";
+  el("#heroLeft").textContent = "已完成 " + cDone + " 项" + (cDoing ? " · 进行中 " + cDoing + " 项" : "");
+  el("#heroRight").textContent = "共 " + total + " 项";
+}
+
+function renderKpi(){
+  var items = allItems();
+  var cc = allCountries().length;
+  var mm = MDATA.length;
+  var books = items.filter(function(x){ return x.kind === "book"; });
+  var films = items.filter(function(x){ return x.kind === "film"; });
+  var bDone = books.filter(function(x){ return stOf(x.it.uid) === "done"; }).length;
+  var fDone = films.filter(function(x){ return stOf(x.it.uid) === "done"; }).length;
+  var allDone = bDone + fDone;
+  var pct = items.length ? Math.round(allDone / items.length * 100) : 0;
+  var been = allCountries().filter(function(x){ return ctOf(x.c.id) === "been"; }).length;
+  var mBeen = MDATA.filter(function(m){ return ctOf(m.id) === "been"; }).length;
+  var mDone = items.filter(function(x){ return x.continent === MUS_NAME && stOf(x.it.uid) === "done"; }).length;
+  var cards = [
+    { lb:"想去的国家", vl: cc + " 个", sb: "覆盖 " + DATA.length + " 个大洲" + (been ? " · 已去过 " + been : ""), cls:"" },
+    { lb:"想去的博物馆", vl: mm + " 家", sb: "已去过 " + mBeen + " 家 · 已完成 " + mDone + " 项", cls:"m" },
+    { lb:"书籍", vl: books.length + " 本", sb: "已读完 " + bDone + " 本 · 还有 " + (books.length - bDone) + " 本", cls:"b" },
+    { lb:"纪录片", vl: films.length + " 部", sb: "已看完 " + fDone + " 部 · 还有 " + (films.length - fDone) + " 部", cls:"b" },
+    { lb:"总进度", vl: pct + "%", sb: "已完成 " + allDone + " / " + items.length + " 项", cls:"g" }
+  ];
+  el("#kpis").innerHTML = cards.map(function(c){
+    return '<div class="kpi"><div class="lb">' + c.lb + '</div><div class="vl ' + c.cls + '">' + c.vl + '</div><div class="sb">' + c.sb + "</div></div>";
+  }).join("");
+}
+
+function itemHtml(it, kind, cid){
+  var s = stOf(it.uid);
+  return '<div class="item" data-s="' + s + '" data-uid="' + esc(it.uid) + '" data-kind="' + kind + '" data-cid="' + esc(cid) + '">' +
+    '<div class="item-tap" data-act="cycle">' +
+      '<div class="dot"></div>' +
+      '<div class="it-main">' +
+        '<div class="it-t">' + esc(it.t) + "</div>" +
+        (it.a ? '<div class="it-meta"><span class="it-a">' + esc(it.a) + "</span></div>" : "") +
+        (it.w ? '<div class="it-w">' + esc(it.w) + "</div>" : "") +
+      "</div>" +
+      '<div class="badge">' + LABEL[s] + "</div>" +
+    "</div>" +
+    '<div class="ops">' +
+      '<button class="op" data-act="edit-item" title="编辑">✎</button>' +
+      '<button class="op del" data-act="del-item" title="删除">✕</button>' +
+    "</div>" +
+  "</div>";
+}
+
+function countryHtml(c, cont, itemsShown){
+  var books = c.books || [], films = c.films || [];
+  var all = books.concat(films);
+  var done = all.filter(function(x){ return stOf(x.uid) === "done"; }).length;
+  var pct = all.length ? Math.round(done / all.length * 100) : 0;
+  var bDone = books.filter(function(x){ return stOf(x.uid) === "done"; }).length;
+  var fDone = films.filter(function(x){ return stOf(x.uid) === "done"; }).length;
+  var bPct = books.length ? Math.round(bDone / books.length * 100) : 0;
+  var fPct = films.length ? Math.round(fDone / films.length * 100) : 0;
+  var cs = ctOf(c.id);
+  var isOpen = !collapsed[c.id];
+  var isMus = cont === MUS_NAME;
+  /* 博物馆卡显示「城市 · 国家」，国家卡显示所属大洲 */
+  var tag = isMus ? ([c.city, c.country].filter(Boolean).join(" · ") || MUS_NAME) : cont;
+
+  return '<article class="country' + (isOpen ? " open" : "") + (isMus ? " mus" : "") + '" data-cid="' + esc(c.id) + '">' +
+    '<div class="c-head" data-act="toggle">' +
+      '<div class="c-flag flagfont">' + esc(flagChar(c)) + "</div>" +
+      '<div class="c-main">' +
+        '<div class="c-name">' + esc(c.name) +
+          '<span class="c-tag">' + esc(tag) + "</span>" +
+          '<span class="c-state" data-act="cycle-cstate" data-s="' + cs + '">' + ctName(cs) + "</span>" +
+          (c.when ? '<span class="c-when">· ' + esc(c.when) + "</span>" : "") +
+        "</div>" +
+        (c.note ? '<div class="c-note">' + esc(c.note) + "</div>" : "") +
+      "</div>" +
+      '<div class="c-right">' +
+        '<div class="country-ops">' +
+          '<button class="op" data-act="edit-country" title="编辑' + (isMus ? "博物馆" : "国家") + '">✎</button>' +
+          '<button class="op del" data-act="del-country" title="删除' + (isMus ? "博物馆" : "国家") + '">✕</button>' +
+        "</div>" +
+        '<div class="c-mini"><i style="width:' + pct + '%"></i></div>' +
+        '<div class="c-pct">' + done + "/" + all.length + "</div>" +
+        '<div class="c-arrow">▶</div>' +
+      "</div>" +
+    "</div>" +
+    '<div class="c-body">' +
+      '<div class="grp">' +
+        '<div class="grp-h">📚 书籍 <span class="num">' + bDone + "/" + books.length + "</span>" +
+          '<span class="bar"><i style="width:' + bPct + '%;background:#0e8be7"></i></span>' +
+          '<button class="mini-add" data-act="add-item" data-kind="book">＋ 加一本</button>' +
+        "</div>" +
+        (books.length ? books.map(function(b){ return itemHtml(b, "book", c.id); }).join("")
+                      : '<div class="grp-empty">还没有书。想想看这个国家该先读什么。</div>') +
+      "</div>" +
+      '<div class="grp">' +
+        '<div class="grp-h">🎬 纪录片 <span class="num">' + fDone + "/" + films.length + "</span>" +
+          '<span class="bar"><i style="width:' + fPct + '%;background:#22c55e"></i></span>' +
+          '<button class="mini-add" data-act="add-item" data-kind="film">＋ 加一部</button>' +
+        "</div>" +
+        (films.length ? films.map(function(f){ return itemHtml(f, "film", c.id); }).join("")
+                      : '<div class="grp-empty">还没有片。找一部能建立现场感的。</div>') +
+      "</div>" +
+    "</div>" +
+  "</article>";
+}
+
+/* 渲染一个「分区」：一个洲，或博物馆这一个虚拟分区（两者结构完全一致） */
+function renderGroupHtml(cont, q, filteringCont){
+  var inner = "", cShown = 0;
+  var isMus = cont.continent === MUS_NAME;
+
+  cont.countries.forEach(function(c){
+      var cItems = allItemsOf(c);
+      var filtering = !!(q || curSeg !== "all");
+      var place = isMus ? ((c.city || "") + " " + (c.country || "")) : "";
+      var hitQ = function(x){
+        if (!q) return true;
+        var blob = (x.it.t + " " + (x.it.a || "") + " " + c.name + " " + cont.continent + " " + place + " " + (x.it.w || "")).toLowerCase();
+        return blob.indexOf(q) >= 0;
+      };
+      var hitSeg = function(x){ return curSeg === "all" || stOf(x.it.uid) === curSeg; };
+      var anyVisible = cItems.some(function(x){ return hitQ(x) && hitSeg(x); });
+      var countryHit = !!q && (c.name + " " + cont.continent + " " + place + " " + (c.note || "")).toLowerCase().indexOf(q) >= 0;
+
+      /* 只在搜索/筛选时才做隐藏判断：新加的国家哪怕还没条目，也必须显示出来 */
+      if (filtering) {
+        if (!anyVisible && !countryHit) return;
+        if (curSeg !== "all" && !anyVisible) return;
+      }
+
+      var cCopy = c;
+      if (filtering) {
+        cCopy = {
+          id: c.id, flag: c.flag, name: c.name, note: c.note, when: c.when,
+          city: c.city, country: c.country,
+          books: (c.books || []).filter(function(b){
+            var x = { kind:"book", it:b };
+            return countryHit || (hitQ(x) && hitSeg(x));
+          }),
+          films: (c.films || []).filter(function(f){
+            var x = { kind:"film", it:f };
+            return countryHit || (hitQ(x) && hitSeg(x));
+          })
+        };
+      }
+      inner += countryHtml(cCopy, cont.continent);
+      cShown++;
+  });
+
+  if (!cShown) return null;
+
+  var items = [];
+  cont.countries.forEach(function(c){ items = items.concat(allItemsOf(c)); });
+  var dn = items.filter(function(x){ return stOf(x.it.uid) === "done"; }).length;
+  var pct = items.length ? Math.round(dn / items.length * 100) : 0;
+
+  var isCollapsed = !filteringCont && !!collapsedCont[cont.continent];
+  var unit = isMus ? " 家博物馆" : " 个国家";
+  return {
+    n: cShown,
+    html: '<section class="cont' + (isCollapsed ? " collapsed" : "") + (isMus ? " mus" : "") + '" data-cont="' + esc(cont.continent) + '">' +
+      '<div class="cont-h" data-act="toggle-cont" title="点一下收起 / 展开">' +
+        '<span class="cn">' + esc(cont.continent) + "</span>" +
+        '<span class="cs">' + cShown + unit + " · " + items.length + " 项 · 已完成 " + dn + "</span>" +
+        '<span class="cbar"><i style="width:' + pct + '%"></i></span>' +
+        '<span class="cont-arrow">▶</span>' +
+      "</div>" + inner + "</section>"
+  };
+}
+
+function renderList(){
+  var q = curQ.trim().toLowerCase();
+  var html = "";
+
+  /* 搜索/筛选时忽略分区折叠状态，否则搜了却看不到结果 */
+  var filteringCont = !!(q || curSeg !== "all");
+
+  DATA.forEach(function(cont){
+    if (curCont !== "all" && cont.continent !== curCont) return;
+    var r = renderGroupHtml(cont, q, filteringCont);
+    if (r) html += r.html;
+  });
+
+  /* 博物馆与洲平级：「全部」里排在各个洲后面，也可以单独看 */
+  if (curCont === "all" || curCont === MUS_NAME) {
+    var rm = renderGroupHtml(museumGroup(), q, filteringCont);
+    if (rm) html += rm.html;
+  }
+
+  var hint = curCont === MUS_NAME
+    ? "点右上角「＋ 新增博物馆」开始记录，或换个关键词搜搜看。"
+    : "点右上角「＋ 新增国家」开始记录，或换个关键词搜搜看。";
+  el("#list").innerHTML = html || '<div class="empty"><b>这里还没有内容</b>' + hint + "</div>";
+}
+
+function allItemsOf(c){
+  var arr = [];
+  (c.books || []).forEach(function(b){ arr.push({ kind:"book", it:b }); });
+  (c.films || []).forEach(function(f){ arr.push({ kind:"film", it:f }); });
+  return arr;
+}
+
+function renderAll(){ renderHero(); renderKpi(); renderList(); }
+
+/* ============================================================
+   列表事件（委托）
+   ============================================================ */
+el("#list").addEventListener("click", function(e){
+  var btn = e.target.closest ? e.target.closest("[data-act]") : null;
+  if (!btn || !el("#list").contains(btn)) return;
+  var act = btn.dataset.act;
+
+  if (act === "cycle") {
+    var node = btn.closest(".item");
+    var uidv = node.dataset.uid;
+    var next = CYCLE[stOf(uidv)];
+    if (next === "todo") delete ST[uidv]; else ST[uidv] = next;
+    saveSt();
+    node.dataset.s = stOf(uidv);
+    node.querySelector(".badge").textContent = LABEL[stOf(uidv)];
+    renderHero(); renderKpi(); updateCountryNumbers();
+    return;
+  }
+  /* 整个大洲收起 / 展开。只切 class 不重渲染，保住各国家自己的展开状态 */
+  if (act === "toggle-cont") {
+    var sec = btn.closest(".cont");
+    if (!sec) return;
+    var cname = sec.dataset.cont;
+    if (collapsedCont[cname]) { delete collapsedCont[cname]; sec.classList.remove("collapsed"); }
+    else { collapsedCont[cname] = 1; sec.classList.add("collapsed"); }
+    lsSet(K_CCOL, collapsedCont);
+    return;
+  }
+  if (act === "toggle") {
+    var card = btn.closest(".country");
+    card.classList.toggle("open");
+    var cid = card.dataset.cid;
+    if (card.classList.contains("open")) delete collapsed[cid]; else collapsed[cid] = 1;
+    saveCol();
+    return;
+  }
+  if (act === "cycle-cstate") {
+    e.stopPropagation();
+    var card2 = btn.closest(".country");
+    var cid2 = card2.dataset.cid;
+    var nx = CYCLE_C[ctOf(cid2)];
+    CT[cid2] = nx; saveCt();
+    btn.dataset.s = nx;
+    btn.textContent = ctName(nx);
+    renderKpi();
+    return;
+  }
+  if (act === "add-item") {
+    e.stopPropagation();
+    var cid3 = btn.closest(".country").dataset.cid;
+    openItemForm(null, cid3, btn.dataset.kind);
+    return;
+  }
+  if (act === "edit-item") {
+    e.stopPropagation();
+    var node2 = btn.closest(".item");
+    openItemForm(node2.dataset.uid, node2.dataset.cid, node2.dataset.kind);
+    return;
+  }
+  if (act === "del-item") {
+    e.stopPropagation();
+    var node3 = btn.closest(".item");
+    var uidv3 = node3.dataset.uid, kind3 = node3.dataset.kind, cid4 = node3.dataset.cid;
+    var hit = findItem(kind3, uidv3);
+    if (!hit) return;
+    if (!confirm("删除「" + hit.it.t + "」？\n（只影响这个条目，其它内容不动）")) return;
+    var arr = hit.c[hit.kind === "book" ? "books" : "films"];
+    arr.splice(hit.idx, 1);
+    delete ST[uidv3];
+    saveData(); saveM(); saveSt(); renderAll();
+    toast("已删除");
+    return;
+  }
+  if (act === "edit-country") {
+    e.stopPropagation();
+    var ecid = btn.closest(".country").dataset.cid;
+    if (findMuseum(ecid)) openMuseumForm(ecid); else openCountryForm(ecid);
+    return;
+  }
+  if (act === "del-country") {
+    e.stopPropagation();
+    var cid5 = btn.closest(".country").dataset.cid;
+    var h5 = findAny(cid5);
+    if (!h5) return;
+    var isM5 = !!h5.museum;
+    var n = allItemsOf(h5.c).length;
+    if (!confirm("删除「" + h5.c.name + "」整个" + (isM5 ? "博物馆" : "国家") + "？\n底下 " + n + " 个条目会一起删掉，不可撤销。")) return;
+    delContainer(cid5);
+    renderTabs(); renderAll();
+    toast("已删除「" + h5.c.name + "」");
+  }
+});
+
+/* 勾选后只更新数字，不重建 DOM（保住展开状态与滚动位置） */
+function updateCountryNumbers(){
+  Array.prototype.forEach.call(document.querySelectorAll(".country"), function(card){
+    var cid = card.dataset.cid;
+    var h = findAny(cid);
+    if (!h) return;
+    var books = h.c.books || [], films = h.c.films || [];
+    var all = books.concat(films);
+    var done = all.filter(function(x){ return stOf(x.uid) === "done"; }).length;
+    var pct = all.length ? Math.round(done / all.length * 100) : 0;
+    var mini = card.querySelector(".c-mini i"); if (mini) mini.style.width = pct + "%";
+    var pc = card.querySelector(".c-pct"); if (pc) pc.textContent = done + "/" + all.length;
+    var bDone = books.filter(function(x){ return stOf(x.uid) === "done"; }).length;
+    var fDone = films.filter(function(x){ return stOf(x.uid) === "done"; }).length;
+    var nums = card.querySelectorAll(".grp-h .num");
+    var bars = card.querySelectorAll(".grp-h .bar i");
+    if (nums[0]) nums[0].textContent = bDone + "/" + books.length;
+    if (nums[1]) nums[1].textContent = fDone + "/" + films.length;
+    if (bars[0]) bars[0].style.width = (books.length ? Math.round(bDone / books.length * 100) : 0) + "%";
+    if (bars[1]) bars[1].style.width = (films.length ? Math.round(fDone / films.length * 100) : 0) + "%";
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".cont"), function(sec){
+    var contName = sec.dataset.cont;
+    var cont = findGroup(contName);
+    if (!cont) return;
+    var items = [];
+    cont.countries.forEach(function(c){ items = items.concat(allItemsOf(c)); });
+    var dn = items.filter(function(x){ return stOf(x.it.uid) === "done"; }).length;
+    var bar = sec.querySelector(".cbar i");
+    if (bar) bar.style.width = (items.length ? Math.round(dn / items.length * 100) : 0) + "%";
+    var cs = sec.querySelector(".cs");
+    if (cs) {
+      var head = cs.textContent.split("·")[0].trim();
+      cs.textContent = head + " · " + items.length + " 项 · 已完成 " + dn;
+    }
+  });
+}
+
+/* ============================================================
+   编辑表单
+   ============================================================ */
+var mState = { mode:null, cid:null, kind:null, uid:null };
+
+function openModal(title, bodyHtml, opts){
+  opts = opts || {};
+  el("#mTitle").textContent = title;
+  el("#mBody").innerHTML = bodyHtml;
+  el("#mDel").style.display = opts.del ? "" : "none";
+  el("#mDel").onclick = opts.del || null;
+  el("#modal").classList.add("on");
+  var f = el("#mBody").querySelector("input,textarea,select");
+  if (f) setTimeout(function(){ f.focus(); }, 60);
+}
+function closeModal(){ el("#modal").classList.remove("on"); mState = { mode:null, cid:null, kind:null, uid:null }; }
+el("#mX").onclick = closeModal;
+el("#mCancel").onclick = closeModal;
+el("#modal").addEventListener("click", function(e){ if (e.target === el("#modal")) closeModal(); });
+document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeModal(); });
+
+function contOptions(sel){
+  return contNames().map(function(c){
+    return '<option value="' + esc(c) + '"' + (c === sel ? " selected" : "") + ">" + esc(c) + "</option>";
+  }).join("");
+}
+
+/* --- 国家表单 --- */
+function openCountryForm(cid){
+  var hit = cid ? findCountry(cid) : null;
+  var c = hit ? hit.c : { flag:"", name:"", note:"", when:"" };
+  var curContName = hit ? hit.cont.continent : "";
+
+  mState = { mode:"country", cid: cid || null };
+
+  var html =
+    '<div class="field"><label>国旗 / 图标 <span style="color:#4b5563">（emoji，可留空）</span></label>' +
+      '<input type="text" id="fFlag" maxlength="4" placeholder="🇯🇵" value="' + esc(c.flag) + '">' +
+      '<div class="tip">直接粘贴 emoji 即可。留空显示 🌍。</div></div>' +
+    '<div class="field"><label>国家 / 地区名 <b>*</b></label>' +
+      '<input type="text" id="fName" placeholder="例如：埃及" value="' + esc(c.name) + '"></div>' +
+    '<div class="field"><label>所属大洲 <b>*</b></label>' +
+      '<input type="text" id="fCont" list="contList" placeholder="亚洲 / 欧洲 / 非洲 / 美洲 / 大洋洲…" value="' + esc(curContName) + '">' +
+      '<datalist id="contList">' + contOptions("") + "</datalist>" +
+      '<div class="tip">可以直接输入新的大洲名，会自动成为新分组。</div></div>' +
+    '<div class="field"><label>一句话印象 <span style="color:#4b5563">（这个国家对你意味着什么）</span></label>' +
+      '<input type="text" id="fNote" placeholder="例如：一条河、两种生死观、五千年" value="' + esc(c.note) + '"></div>' +
+    '<div class="field"><label>计划时间 <span style="color:#4b5563">（可选）</span></label>' +
+      '<input type="text" id="fWhen" placeholder="例如：2027 春 / 待定" value="' + esc(c.when) + '"></div>';
+
+  openModal(cid ? "编辑国家" : "新增国家", html, cid ? {
+    del: function(){
+      var h = findCountry(cid);
+      if (!h) return;
+      var n = allItemsOf(h.c).length;
+      if (!confirm("删除「" + h.c.name + "」整个国家？\n底下 " + n + " 个条目会一起删掉，不可撤销。")) return;
+      delContainer(cid); closeModal(); renderTabs(); renderAll();
+      toast("已删除");
+    }
+  } : {});
+}
+
+/* --- 博物馆表单 --- */
+function openMuseumForm(mid){
+  var m = mid ? findMuseum(mid) : null;
+  var o = m || { flag:"🏛", name:"", city:"", country:"", note:"", when:"" };
+
+  mState = { mode:"museum", cid: mid || null };
+
+  var html =
+    '<div class="field"><label>图标 <span style="color:#4b5563">（emoji，可留空）</span></label>' +
+      '<input type="text" id="fFlag" maxlength="4" placeholder="🏛" value="' + esc(o.flag) + '">' +
+      '<div class="tip">通用 🏛 · 美术馆 🖼 · 宗教 ⛪ · 考古 ⚱ · 遗址 🏺。留空显示 🌍。</div></div>' +
+    '<div class="field"><label>博物馆名 <b>*</b></label>' +
+      '<input type="text" id="fName" placeholder="例如：乌菲兹美术馆" value="' + esc(o.name) + '"></div>' +
+    '<div class="field"><label>城市</label>' +
+      '<input type="text" id="fCity" placeholder="例如：佛罗伦萨" value="' + esc(o.city) + '"></div>' +
+    '<div class="field"><label>国家 / 地区</label>' +
+      '<input type="text" id="fCountry" placeholder="例如：意大利" value="' + esc(o.country) + '"></div>' +
+    '<div class="field"><label>一句话印象 <span style="color:#4b5563">（为什么想去）</span></label>' +
+      '<input type="text" id="fNote" placeholder="例如：文艺复兴的原点" value="' + esc(o.note) + '"></div>' +
+    '<div class="field"><label>计划时间 <span style="color:#4b5563">（可选）</span></label>' +
+      '<input type="text" id="fWhen" placeholder="例如：2027 秋 / 待定" value="' + esc(o.when) + '"></div>';
+
+  openModal(mid ? "编辑博物馆" : "新增博物馆", html, mid ? {
+    del: function(){
+      var mm = findMuseum(mid);
+      if (!mm) return;
+      var n = allItemsOf(mm).length;
+      if (!confirm("删除「" + mm.name + "」整个博物馆？\n底下 " + n + " 个条目会一起删掉，不可撤销。")) return;
+      delContainer(mid); closeModal(); renderTabs(); renderAll();
+      toast("已删除");
+    }
+  } : {});
+}
+
+/* --- 条目表单 --- */
+function openItemForm(uidv, cid, kind){
+  var hit = uidv ? findItem(kind, uidv) : null;
+  var it = hit ? hit.it : { t:"", a:"", w:"" };
+  var useKind = hit ? hit.kind : kind;
+
+  mState = { mode:"item", cid: cid, kind: useKind, origKind: useKind, uid: uidv || null };
+
+  var radios = '<div class="radios" id="fKind">' +
+    ["book","film"].map(function(k){
+      var n = k === "book" ? "📚 书籍" : "🎬 纪录片";
+      return '<button type="button" class="radio' + (useKind === k ? " on" : "") + '" data-k="' + k + '">' + n + "</button>";
+    }).join("") + "</div>";
+
+  var html =
+    '<div class="field"><label>类型</label>' + radios + "</div>" +
+    '<div class="field"><label>' + (useKind === "book" ? "书名" : "片名") + ' <b>*</b></label>' +
+      '<input type="text" id="fT" placeholder="' + (useKind === "book" ? "例如：埃及四千年" : "例如：不朽的埃及") + '" value="' + esc(it.t) + '"></div>' +
+    '<div class="field"><label>' + (useKind === "book" ? "作者 / 译者" : "年份 / 出品方") + "</label>" +
+      '<input type="text" id="fA" placeholder="' + (useKind === "book" ? "例如：乔安·弗莱彻" : "例如：BBC 2016") + '" value="' + esc(it.a) + '"></div>' +
+    '<div class="field"><label>为什么读它 / 看它 <span style="color:#4b5563">（到现场能认出什么）</span></label>' +
+      '<textarea id="fW" placeholder="一句话就够，写给自己看">' + esc(it.w) + "</textarea></div>";
+
+  openModal(uidv ? "编辑条目" : (useKind === "book" ? "加一本" : "加一部"), html);
+
+  Array.prototype.forEach.call(el("#fKind").querySelectorAll(".radio"), function(b){
+    b.onclick = function(){
+      mState.kind = b.dataset.k;
+      Array.prototype.forEach.call(el("#fKind").querySelectorAll(".radio"), function(x){ x.classList.remove("on"); });
+      b.classList.add("on");
+      var lbl = el("#mBody").querySelectorAll(".field label")[1];
+      if (lbl) lbl.innerHTML = (b.dataset.k === "book" ? "书名" : "片名") + " <b>*</b>";
+    };
+  });
+}
+
+/* --- 保存 --- */
+el("#mSave").onclick = function(){
+  if (mState.mode === "museum") {
+    var mflag = el("#fFlag").value.trim();
+    var mname = el("#fName").value.trim();
+    var mcity = el("#fCity").value.trim();
+    var mcountry = el("#fCountry").value.trim();
+    var mnote = el("#fNote").value.trim();
+    var mwhen = el("#fWhen").value.trim();
+    if (!mname) { toast("博物馆名不能空"); return; }
+
+    if (mState.cid) {
+      var mo = findMuseum(mState.cid);
+      if (mo) {
+        mo.flag = mflag; mo.name = mname; mo.city = mcity;
+        mo.country = mcountry; mo.note = mnote; mo.when = mwhen;
+      }
+      toast("已保存");
+    } else {
+      var newMid = uid("m");
+      MDATA.push({ id:newMid, flag:mflag || "🏛", name:mname, city:mcity, country:mcountry, note:mnote, when:mwhen, books:[], films:[] });
+      CT[newMid] = "want"; saveCt();
+      curCont = MUS_NAME;                 /* 切到博物馆分区，否则刚加的看不到 */
+      toast("已新增「" + mname + "」");
+    }
+    saveM(); closeModal(); renderTabs(); renderAll();
+    return;
+  }
+
+  if (mState.mode === "country") {
+    var flag = el("#fFlag").value.trim();
+    var name = el("#fName").value.trim();
+    var contv = el("#fCont").value.trim();
+    var note = el("#fNote").value.trim();
+    var when = el("#fWhen").value.trim();
+    if (!name) { toast("国家名不能空"); return; }
+    if (!contv) { toast("请填大洲"); return; }
+
+    if (mState.cid) {
+      var h = findCountry(mState.cid);
+      if (h) {
+        var oldCont = h.cont.continent;
+        h.c.flag = flag; h.c.name = name; h.c.note = note; h.c.when = when;
+        if (oldCont !== contv) {
+          h.cont.countries = h.cont.countries.filter(function(x){ return x.id !== mState.cid; });
+          var target = DATA.filter(function(x){ return x.continent === contv; })[0];
+          if (!target) { target = { continent: contv, countries: [] }; DATA.push(target); }
+          target.countries.push(h.c);
+          if (!h.cont.countries.length) DATA = DATA.filter(function(x){ return x !== h.cont; });
+        }
+      }
+      toast("已保存");
+    } else {
+      var target2 = DATA.filter(function(x){ return x.continent === contv; })[0];
+      if (!target2) { target2 = { continent: contv, countries: [] }; DATA.push(target2); }
+      var newCid = uid("c");
+      target2.countries.push({ id:newCid, flag:flag, name:name, note:note, when:when, books:[], films:[] });
+      CT[newCid] = "want";
+      saveCt();
+      toast("已新增「" + name + "」");
+    }
+    /* 新国家如果不在当前筛选的大洲里，回到「全部」，否则用户看不到刚加的东西 */
+    if (curCont !== "all" && curCont !== contv) curCont = "all";
+    saveData(); closeModal(); renderTabs(); renderAll();
+    return;
+  }
+
+  if (mState.mode === "item") {
+    var t = el("#fT").value.trim();
+    var a = el("#fA").value.trim();
+    var w = el("#fW").value.trim();
+    var kind = mState.kind;
+    if (!t) { toast("名称不能空"); return; }
+
+    if (mState.uid) {
+      /* 用「改之前」的类型去找条目；mState.kind 可能已被类型开关改过 */
+      var oldKind = mState.origKind;
+      var hi = findItem(oldKind, mState.uid);
+      if (!hi) { closeModal(); return; }
+      hi.it.t = t; hi.it.a = a; hi.it.w = w;
+      if (kind !== oldKind) {
+        /* 类型改了：把条目从原栏搬到另一栏 */
+        var src = hi.c[oldKind === "book" ? "books" : "films"];
+        src.splice(hi.idx, 1);
+        hi.c[kind === "book" ? "books" : "films"].push(hi.it);
+      }
+      toast("已保存");
+    } else {
+      var hc = findAny(mState.cid);
+      if (!hc) { closeModal(); return; }
+      var it = { uid: uid(mState.cid), t:t, a:a, w:w };
+      hc.c[kind === "book" ? "books" : "films"].push(it);
+      toast("已添加");
+    }
+    saveData(); saveM(); closeModal(); renderAll();
+  }
+};
+
+/* 「＋ 新增国家 / 新增博物馆」按钮由 renderTabs() 里的 syncAddBtn() 统一设置 */
+el("#q").addEventListener("input", function(){ curQ = this.value; renderList(); });
+
+/* ============================================================
+   导出 / 导入 / 重置
+   ============================================================ */
+function download(name, text){
+  var blob = new Blob([text], { type:"application/json" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+}
+function stamp(){
+  var d = new Date();
+  function p(n){ return (n < 10 ? "0" : "") + n; }
+  return d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate());
+}
+
+el("#exp").onclick = function(){
+  var payload = {
+    app: "先读世界 Read the World",
+    version: 3,
+    exportedAt: new Date().toISOString(),
+    data: DATA,
+    museums: MDATA,
+    st: ST,
+    ct: CT,
+    collapsed: collapsed,
+    ccol: collapsedCont
+  };
+  download("先读世界备份-" + stamp() + ".json", JSON.stringify(payload, null, 2));
+  toast("已导出备份文件");
+};
+
+el("#imp").onclick = function(){
+  var inp = document.createElement("input");
+  inp.type = "file"; inp.accept = ".json,application/json";
+  inp.onchange = function(){
+    var f = inp.files && inp.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      var obj;
+      try { obj = JSON.parse(r.result); } catch(e){ toast("解析失败：" + e.message); return; }
+      var ok = false;
+      if (obj && Array.isArray(obj.data) && obj.data.length) {
+        DATA = obj.data; ST = obj.st || {}; CT = obj.ct || {}; collapsed = obj.collapsed || {};
+        collapsedCont = obj.ccol || {};
+        MDATA = Array.isArray(obj.museums) ? obj.museums : freshM();
+        saveData(); saveSt(); saveCt(); saveCol(); saveM();
+        lsSet(K_CCOL, collapsedCont);
+        ok = true;
+      } else if (obj && (obj.state || obj.st)) {
+        ST = obj.state || obj.st; saveSt(); ok = true;   /* 兼容旧版只导状态的文件 */
+      }
+      if (!ok) { toast("这个文件里没有可识别的数据"); return; }
+      renderTabs(); renderAll();
+      toast("已导入：" + allItems().length + " 个条目");
+    };
+    r.readAsText(f);
+  };
+  inp.click();
+};
+
+el("#reseed").onclick = function(){
+  if (!confirm("恢复到内置的默认内容（11 个国家 + " + SEED_M.length + " 家博物馆）？\n你自己新增和修改的内容会被移除，但同名条目的勾选进度会尽量保留。")) return;
+  DATA = freshData();
+  MDATA = freshM();
+  collapsed = {};
+  curCont = "all";
+  saveData(); saveM(); saveCol(); renderTabs(); renderAll();
+  toast("已恢复默认内容");
+};
+
+el("#rst").onclick = function(){
+  if (!confirm("清空所有勾选进度？\n（国家、书籍、纪录片的内容都保留，只是把圆圈恢复成未开始）")) return;
+  ST = {}; saveSt();
+  renderAll();
+  toast("进度已清空");
+};
+
+/* ---------- boot ---------- */
+renderTabs();
+renderSegs();
+renderAll();
+</script>
+</body>
+</html>
